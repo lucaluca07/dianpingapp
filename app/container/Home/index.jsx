@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import HomeHeader from '../../component/HomeHeader'
 import Category from '../../component/Category'
+import HeadLine from './subpage/HeadLine'
 
 
 class Home extends Component{
@@ -11,6 +12,7 @@ class Home extends Component{
       <div>
         <HomeHeader cityName={this.props.userinfo.cityName}/>
         <Category/>
+        <HeadLine/>
       </div>
     )
   }
