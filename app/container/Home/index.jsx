@@ -5,6 +5,7 @@ import HomeHeader from '../../component/HomeHeader'
 import Category from '../../component/Category'
 import HeadLine from './subpage/HeadLine'
 import Ad from './subpage/Ad'
+import List from './subpage/List'
 
 
 class Home extends Component{
@@ -15,6 +16,7 @@ class Home extends Component{
         <Category/>
         <HeadLine/>
         <Ad/>
+        <List cityName={this.props.userinfo.cityName}/>
       </div>
     )
   }

@@ -1,0 +1,34 @@
+import React from 'react'
+import './style.less'
+
+//猜你喜欢单独一个 的组件
+export default class Item extends React.Component {
+
+  render() {
+    const data = this.props.data
+    return (
+      <div className='item'>
+        <div className='item-left'>
+          {data.pictag.tag?<span className='pic-tag' style={{color:data.pictag.color}}>{data.pictag.tag}</span>:''}
+          <img className='item-pic' src={data.defaultPic} alt=""/>
+        </div>
+        <div className='item-right'>
+          <div className='item-title'>
+            <h3 className='shop-title'>{data.shopName}</h3>
+            {data.distance?<span className='shop-distance'>{data.distance}</span>:''}
+          </div>
+          <div className='shop-name-sub'>
+            {data.dealGroupTitle}
+          </div>
+          <div className='item-price'>
+            <div>
+              <span className='price-current'>￥{data.dealgroupPrice}</span>
+              <span className='price-old'>￥{data.marketPrice}</span>
+            </div>
+            <span className='sold-num'>{data.salesdesc}</span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}

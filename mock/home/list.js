@@ -38,7 +38,7 @@ module.exports = {
         "shopId": "90951360",
         "defaultPic": "https://p1.meituan.net/deal/495ecea2c53950a4c48eb955da1ec6c666035.jpg%40180w_180h_1e_1c_1l_80q%7Cwatermark%3D0",
         "item_type": "standard",
-        "distance": null,
+        "distance": "512m",
         "regionName": "",
         "tgcurrentjoin": "245277",
         "recreason": "",

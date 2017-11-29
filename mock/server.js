@@ -28,10 +28,12 @@ router.get('/api/homelist/:city/:page', async(ctx) => {
   console.log('当前页数：' + paramsPage)
 
   let data = listData
-  //如果页码大于等于5 hasMore = false
-   if(paramsPage>=5){
+  //如果页码大于等于3 hasMore = false
+   if(paramsPage>=3){
     data.data.hasMore = false
-  }
+  }else{
+     data.data.hasMore = true
+   }
   ctx.body = data
 })
 

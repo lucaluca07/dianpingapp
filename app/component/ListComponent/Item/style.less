@@ -1,0 +1,60 @@
+.item {
+  display: flex;
+  margin-left: 15px;
+  padding: 10px 10px 10px 0;
+  border-bottom: .5px solid #ccc;
+  font-size: 13px;
+  color: #777;
+  .item-left {
+    position: relative;
+    .item-pic {
+      height: 90px;
+      width: 90px;
+    }
+    .pic-tag{
+      position: absolute;
+      font-size: 12px;
+      padding: 2px 5px;
+      top:2px;
+      left: 2px;
+      background: #111;
+    }
+  }
+  .item-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5px;
+    flex: 1;
+    .item-title {
+      display: flex;
+      justify-content: space-between;
+      .shop-title {
+        color: #111;
+        font-size: 17px;
+      }
+      .shop-distance {
+        align-self: flex-end;
+      }
+    }
+    .shop-name-sub {
+      overflow: hidden;
+    }
+    .item-price {
+      display: flex;
+      justify-content: space-between;
+      .price-current {
+        color: #f63;
+        font-size: 21px;
+        font-weight: bold;
+      }
+      .price-old {
+        align-self: flex-end;
+        text-decoration: line-through;
+      }
+      .sold-num {
+        align-self: flex-end;
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import HeadLineComponent from '../../../component/HeadLine'
 import {getHeadLineData} from "../../../fetch/home/index";
 
+//点评头条
 export default class HeadLine extends React.Component {
   constructor() {
     super()

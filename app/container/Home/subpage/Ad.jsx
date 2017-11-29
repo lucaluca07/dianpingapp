@@ -3,6 +3,7 @@ import HomeAd from '../../../component/HomeAd'
 import { getAdData } from "../../../fetch/home/index";
 import './style.less'
 
+//超值特惠 天天立减
 export default class Ad extends React.Component {
   constructor(){
     super()
