@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.less'
 
+//加载更多组件
 export default class LoadMore extends React.Component {
 
   componentDidMount(){

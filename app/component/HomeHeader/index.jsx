@@ -1,17 +1,18 @@
 import React from 'react'
 import './style.less'
+import { Link } from 'react-router-dom'
 /*
-* Header组件
+* 头部组件，图标使用的icomoon
 * */
 export default class HomeHeader extends React.Component {
   render() {
     return (
       <div className='clear-fix home-header'>
-        <div className='float-left home-header-left'>
+        <Link to="/city" className='float-left home-header-left'>
           <span>{this.props.cityName}</span>
           &nbsp;
           <i className='icon-angle-down'></i>
-        </div>
+        </Link>
         <div className='float-right home-header-right'>
           <i className='icon-user'></i>
         </div>

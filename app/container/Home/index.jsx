@@ -22,6 +22,7 @@ class Home extends Component{
   }
 }
 
+// - - - - - - - - - - - react redux 绑定 - - - - - - - - - - -
 function mapStateToProps(state) {
   return {
     userinfo:state.userinfo

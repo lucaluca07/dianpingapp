@@ -13,16 +13,16 @@ export default class RouterMap extends React.Component{
     return(
       <Router>
         <div>
-          <ul className='clear-fix'>
-            <li className='float-left'><Link to="/">Home</Link></li>
-            <li className='float-left'><Link to="/city">City</Link></li>
-            <li className='float-left'><Link to="/detail">Detail</Link></li>
-            <li className='float-left'><Link to="/search">Search</Link></li>
-            <li className='float-left'><Link to="/user">User</Link></li>
-            <li className='float-left'><Link to="/use">NotFound</Link></li>
-          </ul>
+          {/*<ul className='clear-fix'>*/}
+            {/*<li className='float-left'><Link to="/">Home</Link></li>*/}
+            {/*<li className='float-left'><Link to="/city">City</Link></li>*/}
+            {/*<li className='float-left'><Link to="/detail">Detail</Link></li>*/}
+            {/*<li className='float-left'><Link to="/search">Search</Link></li>*/}
+            {/*<li className='float-left'><Link to="/user">User</Link></li>*/}
+            {/*<li className='float-left'><Link to="/use">NotFound</Link></li>*/}
+          {/*</ul>*/}
 
-          <hr/>
+          {/*<hr/>*/}
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/city" component={City}/>

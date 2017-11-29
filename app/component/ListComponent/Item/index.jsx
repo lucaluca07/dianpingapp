@@ -8,13 +8,17 @@ export default class Item extends React.Component {
     const data = this.props.data
     return (
       <div className='item'>
+        {/*左边图片区域*/}
         <div className='item-left'>
+          {/*如果有tag显示tag 没有tag不显示*/}
           {data.pictag.tag?<span className='pic-tag' style={{color:data.pictag.color}}>{data.pictag.tag}</span>:''}
           <img className='item-pic' src={data.defaultPic} alt=""/>
         </div>
+        {/*右边标题价格区域*/}
         <div className='item-right'>
           <div className='item-title'>
             <h3 className='shop-title'>{data.shopName}</h3>
+            {/*距离不会null时显示*/}
             {data.distance?<span className='shop-distance'>{data.distance}</span>:''}
           </div>
           <div className='shop-name-sub'>

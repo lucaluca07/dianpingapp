@@ -19,16 +19,18 @@ export default class Ad extends React.Component {
     return (
       <div>
         <div>
+          {/*标题*/}
           <div className='ad '>
-            <span className='czth'>超值特惠</span>
-            <span className='more'>更多优惠 ></span>
+            <span className='czth'>超值特惠 </span>
+            <span className='more'>更多优惠 <i className='icon-angle-right'></i></span>
           </div>
           <HomeAd data={data.czth}/>
         </div>
         <div>
+          {/*标题*/}
           <div className='ad '>
             <span className='ttlj'>天天立减</span>
-            <span className='more'>更多优惠 ></span>
+            <span className='more'>更多优惠 <i className='icon-angle-right'></i></span>
           </div>
           <HomeAd data={data.ttlj}/>
         </div>
