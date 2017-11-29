@@ -7,25 +7,21 @@ export default class HeadLineComponent extends React.Component {
   render() {
     const opt = {
       auto: 1000,
-      disableScroll: true,
-      transitionEnd: function () {
-        console.log(111)
-      }
-
+      speed: 1000,
+      disableScroll: true
     }
     return (
-      <div className='clear-fix headline'>
-        <div className='float-left'>
-          点评头条
+      <div className='headline'>
+        <div className='headline-title'>
         </div>
         <div className='headline-swipe'>
           <ReactSwipe swipeOptions={opt}>
             {this.props.data.map((val, index) => (
-              <div className='clear-fix' key={index}>
-                <div className='swipe-item'>
-                  <div>{val.title}</div>
-                  <img className='float-right' src={val.pic} alt=""/>
+              <div className='swipe-item' key={index}>
+                <div className='swipe-title'>
+                  <span className='title-text'>{val.title}</span>
                 </div>
+                <img className='swipe-pic' src={val.pic} alt=""/>
               </div>
             ))}
           </ReactSwipe>
