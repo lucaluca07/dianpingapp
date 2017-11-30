@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //从localstorage中获取cityName
+    //从localstorage中获取cityName,获取不到就设置为北京
     let cityName = LocalStore.getItem(CITYNAME)
     if (cityName == null) {
       cityName = '北京'
