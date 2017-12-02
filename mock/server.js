@@ -1,5 +1,4 @@
 const Koa = require('koa')
-const fs = require('fs')
 const app = new Koa()
 
 const Router = require('koa-router')
@@ -35,6 +34,47 @@ router.get('/api/homelist/:city/:page', async(ctx) => {
      data.data.hasMore = true
    }
   ctx.body = data
+})
+// 搜索结果页 - 搜索结果 - 三个参数
+var searchListData = require('./search/list.js')
+router.get('/api/search/:page/:city/:category/:keyword', async (ctx) => {
+  // 参数
+  const params = ctx.params
+  const paramsPage = params.page
+  const paramsCity = params.city
+  const paramsCategory = params.category
+  const paramsKeyword = params.keyword
+
+  console.log('当前页数：' + paramsPage)
+  console.log('当前城市：' + paramsCity)
+  console.log('当前类别：' + paramsCategory)
+  console.log('关键字：' + paramsKeyword)
+  if(paramsPage>=5){
+    searchListData.data.hasMore = false
+  }else{
+    searchListData.data.hasMore = true
+  }
+  ctx.body = searchListData
+})
+// 搜索结果页 - 搜索结果 - 两个参数
+router.get('/api/search/:page/:city/:category', async (ctx) => {
+  // 参数
+  const params = ctx.params
+  const paramsPage = params.page
+  const paramsCity = params.city
+  const paramsCategory = params.category
+
+  console.log('当前页数：' + paramsPage)
+  console.log('当前城市：' + paramsCity)
+  console.log('当前类别：' + paramsCategory)
+
+  if(paramsPage>=5){
+    searchListData.data.hasMore = false
+  }else{
+    searchListData.data.hasMore = true
+  }
+
+  ctx.body = searchListData
 })
 
 // 加载路由中间件

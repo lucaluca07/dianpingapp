@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { HashRouter  as Router, Route, Switch } from 'react-router-dom'
 
 import Home from '../container/Home'
 import City from '../container/City'
@@ -27,7 +27,7 @@ export default class RouterMap extends React.Component{
             <Route exact path="/" component={Home}/>
             <Route path="/city" component={City}/>
             <Route path="/detail" component={Detail}/>
-            <Route path="/search" component={Search}/>
+            <Route path="/search/:type/:keyword?" component={Search}/>
             <Route path="/user" component={User}/>
             <Route component={NotFound}/>
           </Switch>

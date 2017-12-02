@@ -7,7 +7,6 @@ import HeadLine from './subpage/HeadLine'
 import Ad from './subpage/Ad'
 import List from './subpage/List'
 
-
 class Home extends Component{
   render(){
     return(

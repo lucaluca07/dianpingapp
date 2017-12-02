@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactSwipe from 'react-swipe';
+import {Link} from 'react-router-dom'
 
 import './style.less'
 import meishi from './categoryIcon/01meishiicon_1.png'
@@ -57,147 +58,207 @@ export default class Category extends React.Component {
         <ReactSwipe className="carousel" swipeOptions={opt}>
           <div className='category-item'>
             <ul className='clear-fix'>
-              <li className='float-left'>
-                <div>
-                  <img src={meishi}/>
-                </div>
-                <span>美食</span>
-              </li>
-              <li className='float-left'>
-                <div>
-                  <img src={dianying}/>
-                </div>
-                <span>电影</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={jiudian}/></div>
-                <span>酒店</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={xiuxian}/></div>
-                <span>休闲娱乐</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={waimai}/></div>
-                <span>外卖</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={huoguo}/></div>
-                <span>火锅</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={liren}/></div>
-                <span>丽人</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={dujia}/></div>
-                <span>度假旅行</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={zuliao}/></div>
-                <span>足疗按摩</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={zhoubianyou}/></div>
-                <span>周边游</span>
-              </li>
+              <Link to='/search/meishi'>
+                <li className='float-left'>
+                  <div>
+                    <img src={meishi}/>
+                  </div>
+                  <span>美食</span>
+                </li>
+              </Link>
+              <Link to='/search/dianying'>
+                <li className='float-left'>
+                  <div>
+                    <img src={dianying}/>
+                  </div>
+                  <span>电影</span>
+                </li>
+              </Link>
+              <Link to='/search/jiudian'>
+                <li className='float-left'>
+                  <div><img src={jiudian}/></div>
+                  <span>酒店</span>
+                </li>
+              </Link>
+              <Link to='/search/xiuxian'>
+                <li className='float-left'>
+                  <div><img src={xiuxian}/></div>
+                  <span>休闲娱乐</span>
+                </li>
+              </Link>
+              <Link to='/search/waimai'>
+                <li className='float-left'>
+                  <div><img src={waimai}/></div>
+                  <span>外卖</span>
+                </li>
+              </Link>
+              <Link to='/search/huoguo'>
+                <li className='float-left'>
+                  <div><img src={huoguo}/></div>
+                  <span>火锅</span>
+                </li>
+              </Link>
+              <Link to='/search/liren'>
+                <li className='float-left'>
+                  <div><img src={liren}/></div>
+                  <span>丽人</span>
+                </li>
+              </Link>
+              <Link to='/search/dujia'>
+                <li className='float-left'>
+                  <div><img src={dujia}/></div>
+                  <span>度假旅行</span>
+                </li>
+              </Link>
+              <Link to='/search/zuliao'>
+                <li className='float-left'>
+                  <div><img src={zuliao}/></div>
+                  <span>足疗按摩</span>
+                </li>
+              </Link>
+              <Link to='/search/zhoubianyou'>
+                <li className='float-left'>
+                  <div><img src={zhoubianyou}/></div>
+                  <span>周边游</span>
+                </li>
+              </Link>
             </ul>
           </div>
           <div className='category-item'>
             <ul>
-              <li className='float-left'>
-                <div><img src={jingdian}/></div>
-                <span>景点</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={ktv}/></div>
-                <span>KTV</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={gouwu}/></div>
-                <span>购物</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={shenghuo}/></div>
-                <span>生活服务</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={yundong}/></div>
-                <span>运动健身</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={meifa}/></div>
-                <span>美发</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={qinzi}/></div>
-                <span>亲子</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={xiaochi}/></div>
-                <span>小吃快餐</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={zizhucan}/></div>
-                <span>自助餐</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={jiuba}/></div>
-                <span>酒吧</span>
-              </li>
+              <Link to='/search/jingdian'>
+                <li className='float-left'>
+                  <div><img src={jingdian}/></div>
+                  <span>景点</span>
+                </li>
+              </Link>
+              <Link to='/search/ktv'>
+                <li className='float-left'>
+                  <div><img src={ktv}/></div>
+                  <span>KTV</span>
+                </li>
+              </Link>
+              <Link to='/search/gouwu'>
+                <li className='float-left'>
+                  <div><img src={gouwu}/></div>
+                  <span>购物</span>
+                </li>
+              </Link>
+              <Link to='/search/shenghuo'>
+                <li className='float-left'>
+                  <div><img src={shenghuo}/></div>
+                  <span>生活服务</span>
+                </li>
+              </Link>
+              <Link to='/search/yundong'>
+                <li className='float-left'>
+                  <div><img src={yundong}/></div>
+                  <span>运动健身</span>
+                </li>
+              </Link>
+              <Link to='/search/meifa'>
+                <li className='float-left'>
+                  <div><img src={meifa}/></div>
+                  <span>美发</span>
+                </li>
+              </Link>
+              <Link to='/search/qinzi'>
+                <li className='float-left'>
+                  <div><img src={qinzi}/></div>
+                  <span>亲子</span>
+                </li>
+              </Link>
+              <Link to='/search/xiaochi'>
+                <li className='float-left'>
+                  <div><img src={xiaochi}/></div>
+                  <span>小吃快餐</span>
+                </li>
+              </Link>
+              <Link to='/search/zizhucan'>
+                <li className='float-left'>
+                  <div><img src={zizhucan}/></div>
+                  <span>自助餐</span>
+                </li>
+              </Link>
+              <Link to='/search/jiuba'>
+                <li className='float-left'>
+                  <div><img src={jiuba}/></div>
+                  <span>酒吧</span>
+                </li>
+              </Link>
             </ul>
           </div>
           <div className='category-item'>
             <ul>
-              <li className='float-left'>
-                <div><img src={ribancai}/></div>
-                <span>日本菜</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={spa}/></div>
-                <span>SPA</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={jiehun}/></div>
-                <span>结婚</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={xuexi}/></div>
-                <span>学习培训</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={xican}/></div>
-                <span>西餐</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={huoche}/></div>
-                <span>火车机票</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={shaokao}/></div>
-                <span>烧烤</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={jiazhuang}/></div>
-                <span>家装</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={chongwu}/></div>
-                <span>宠物</span>
-              </li>
-              <li className='float-left'>
-                <div><img src={quanbu}/></div>
-                <span>全部分类</span>
-              </li>
+              <Link to='/search/ribancai'>
+                <li className='float-left'>
+                  <div><img src={ribancai}/></div>
+                  <span>日本菜</span>
+                </li>
+              </Link>
+              <Link to='/search/spa'>
+                <li className='float-left'>
+                  <div><img src={spa}/></div>
+                  <span>SPA</span>
+                </li>
+              </Link>
+              <Link to='/search/jiehun'>
+                <li className='float-left'>
+                  <div><img src={jiehun}/></div>
+                  <span>结婚</span>
+                </li>
+              </Link>
+              <Link to='/search/xuexi'>
+                <li className='float-left'>
+                  <div><img src={xuexi}/></div>
+                  <span>学习培训</span>
+                </li>
+              </Link>
+              <Link to='/search/xican'>
+                <li className='float-left'>
+                  <div><img src={xican}/></div>
+                  <span>西餐</span>
+                </li>
+              </Link>
+              <Link to='/search/huoche'>
+                <li className='float-left'>
+                  <div><img src={huoche}/></div>
+                  <span>火车机票</span>
+                </li>
+              </Link>
+              <Link to='/search/shaokao'>
+                <li className='float-left'>
+                  <div><img src={shaokao}/></div>
+                  <span>烧烤</span>
+                </li>
+              </Link>
+              <Link to='/search/jiazhuang'>
+                <li className='float-left'>
+                  <div><img src={jiazhuang}/></div>
+                  <span>家装</span>
+                </li>
+              </Link>
+              <Link to='/search/chongwu'>
+                <li className='float-left'>
+                  <div><img src={chongwu}/></div>
+                  <span>宠物</span>
+                </li>
+              </Link>
+              <Link to='/search/quanbu'>
+                <li className='float-left'>
+                  <div><img src={quanbu}/></div>
+                  <span>全部分类</span>
+                </li>
+              </Link>
             </ul>
           </div>
         </ReactSwipe>
         <div className='category-index'>
           <ul className='clear-fix'>
             {/*//为当前激活的dot添加 seleted 类*/}
-            <li className={this.state.index===0?'seleted float-left':'float-left'}></li>
-            <li className={this.state.index===1?'seleted float-left':'float-left'}></li>
-            <li className={this.state.index===2?'seleted float-left':'float-left'}></li>
+            <li className={this.state.index === 0 ? 'seleted float-left' : 'float-left'}></li>
+            <li className={this.state.index === 1 ? 'seleted float-left' : 'float-left'}></li>
+            <li className={this.state.index === 2 ? 'seleted float-left' : 'float-left'}></li>
           </ul>
         </div>
       </div>

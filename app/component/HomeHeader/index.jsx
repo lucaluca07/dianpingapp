@@ -1,10 +1,16 @@
 import React from 'react'
 import './style.less'
 import { Link } from 'react-router-dom'
+import SearchInput from '../SearchInput'
+import {withRouter} from 'react-router-dom'
 /*
 * 头部组件，图标使用的icomoon
 * */
-export default class HomeHeader extends React.Component {
+class HomeHeader extends React.Component {
+  handleEnter(value){
+    this.props.history.push(`/search/all/${value}`)
+  }
+
   render() {
     return (
       <div className='clear-fix home-header'>
@@ -19,10 +25,12 @@ export default class HomeHeader extends React.Component {
         <div className='home-header-middle'>
           <div className='search-container'>
             <i className='icon-search'></i>
-            <input type="text" placeholder='输入关键字'/>
+            <SearchInput onEnter = {this.handleEnter.bind(this)}/>
           </div>
         </div>
       </div>
     )
   }
 }
+//react-router-dom 获取history,进行页面跳转
+export default withRouter(HomeHeader)

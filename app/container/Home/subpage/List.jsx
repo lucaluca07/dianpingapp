@@ -1,11 +1,12 @@
 import React from 'react'
 import ListComponent from '../../../component/ListComponent'
 import LoadMore from '../../../component/LoadMore'
+import Footer from '../../../component/Footer'
 import {getListData} from "../../../fetch/home/index"
 
 export default class List extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       data: [],                   //猜你喜欢数据列表
       hasMore: false,            //是否有更多数据，有的话可以 加载更多
@@ -70,9 +71,8 @@ export default class List extends React.Component {
             ? <LoadMore
               isLoadMore={this.state.isLoaddingMore}
               onLoadMore={this.loadMoreData.bind(this)}/>
-            : ''
+            : <Footer/>
         }
-
       </div>
     )
   }
