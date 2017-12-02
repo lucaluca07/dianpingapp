@@ -7,7 +7,7 @@ import './style.less'
 
 class SearchHeader extends React.Component {
   handleClick(){
-    window.history.back()//返回上一页
+    this.props.history.push('/')//返回上一页
   }
   handleEnter(value){
     if(this.props.keyword === value){

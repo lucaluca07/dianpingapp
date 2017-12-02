@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import './style.less'
 
-//猜你喜欢组件
+//店铺列表组件
 export default class ListComponent extends React.Component {
 
   render() {
@@ -10,7 +10,7 @@ export default class ListComponent extends React.Component {
     return (
       <div className='list-component'>
         {data.map((val, index) => (
-          <Item key={index} data={val}/>
+          <Item key={index} data={val} shopId={val.shopId}/>
         ))}
       </div>
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './style.less'
 
 /*
@@ -10,21 +11,24 @@ export default class HomeAd extends React.Component {
     return (
       <div className='home-ad'>
         {data.map((val, index) => (
-          <div className='ad-item' key={index}>
-            <div className='ad-img'>
-              <img src={val.imageUrl} alt=""/>
+          <Link key={index} to={`/detail/${val.dgId}`}>
+            <div className='ad-item'>
+              <div className='ad-img'>
+                <img src={val.imageUrl} alt=""/>
+              </div>
+              <p className='ad-title'>{val.shortTitle}</p>
+              <div>
+                <span className='ad-price'>￥{parseInt(val.price)}</span>
+                {/*如果有tag显示tag,没有tag显示原始价格*/}
+                {val.tag == ''
+                  ? <span className='ad-market-price'>￥{parseInt(val.markPrice)}</span>
+                  : <span className='ad-tag'>{val.tag}</span>}
+              </div>
             </div>
-            <p className='ad-title'>{val.shortTitle}</p>
-            <div>
-              <span className='ad-price'>￥{parseInt(val.price)}</span>
-              {/*如果有tag显示tag,没有tag显示原始价格*/}
-              {val.tag == ''
-                ? <span className='ad-market-price'>￥{parseInt(val.markPrice)}</span>
-                : <span className='ad-tag'>{val.tag}</span>}
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
+
 
     )
   }
