@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   data: {
     "shopName": "百素我家酸菜鱼(中山公园一店)",
     "price": "69",

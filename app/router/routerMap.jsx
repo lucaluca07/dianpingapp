@@ -6,6 +6,7 @@ import City from '../container/City'
 import Detail from '../container/Detail'
 import Search from '../container/Search'
 import User from '../container/User'
+import Login from '../container/Login'
 import NotFound from '../container/404'
 
 export default class RouterMap extends React.Component{
@@ -29,6 +30,7 @@ export default class RouterMap extends React.Component{
             <Route path="/detail/:shopId" component={Detail}/>
             <Route path="/search/:type/:keyword?" component={Search}/>
             <Route path="/user" component={User}/>
+            <Route path="/login/:router?" component={Login}/>
             <Route component={NotFound}/>
           </Switch>
         </div>

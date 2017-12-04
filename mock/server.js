@@ -76,24 +76,26 @@ router.get('/api/search/:page/:city/:category', async (ctx) => {
 
   ctx.body = searchListData
 })
+
 let detailInfo = require('./detail/info.js')
-router.get('/api/detail/info/:shipId', async(ctx) => {
-  const shopId = this.params.shopId
+router.get('/api/detail/info/:shopId', async(ctx) => {
+  const shopId = ctx.params.shopId
   console.log("商户ID:" + shopId)
   ctx.body = detailInfo
 })
+
 let detailComment = require('./detail/comment.js')
-router.get('/api/detail/info/:shipId/:page', async(ctx) => {
-  const shopId = this.params.shopId
-  const page = this.params.page
+router.get('/api/detail/comment/:shopId/:page', async(ctx) => {
+  const shopId = ctx.params.shopId
+  const page = ctx.params.page
   console.log("商户ID:" + shopId)
   console.log("页数:" + page)
-  if(paramsPage>=5){
-    searchListData.data.hasMore = false
+  if(page>=5){
+    detailComment.hasMore = false
   }else{
-    searchListData.data.hasMore = true
+    detailComment.hasMore = true
   }
-  ctx.body = detailInfo
+  ctx.body = detailComment
 })
 
 // 加载路由中间件

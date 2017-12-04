@@ -1,8 +1,7 @@
 import React from 'react'
 import './style.less'
-import { Link } from 'react-router-dom'
+import { Link,withRouter } from 'react-router-dom'
 import SearchInput from '../SearchInput'
-import {withRouter} from 'react-router-dom'
 /*
 * 头部组件，图标使用的icomoon
 * */
@@ -19,9 +18,11 @@ class HomeHeader extends React.Component {
           &nbsp;
           <i className='icon-angle-down'></i>
         </Link>
-        <div className='float-right home-header-right'>
-          <i className='icon-user'></i>
-        </div>
+        <Link to='/login'>
+          <div className='float-right home-header-right'>
+            <i className='icon-user'></i>
+          </div>
+        </Link>
         <div className='home-header-middle'>
           <div className='search-container'>
             <i className='icon-search'></i>
