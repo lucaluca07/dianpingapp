@@ -4,6 +4,9 @@ import './style.less'
 
 export default class InfoComponent extends React.Component{
 
+  handleClick(){
+    this.props.onClickBuyBtn()
+  }
   render(){
     const data = this.props.data
     return(
@@ -26,7 +29,7 @@ export default class InfoComponent extends React.Component{
         </div>
         <div className='btn-box'>
           <span className='info-desc'>{data.desc}</span>
-          <button className='info-btn'>收藏</button>
+          <button className='info-btn' onClick={this.handleClick.bind(this)}>买单</button>
         </div>
         <hr/>
         <div className='shop-address'>

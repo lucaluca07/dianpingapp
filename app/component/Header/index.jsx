@@ -1,10 +1,17 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 import './style.less'
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
   handleClick(){
-    window.history.back()
+    const backUrl = this.props.back
+    if(backUrl){
+      this.props.history.push(backUrl)
+    }else{
+      window.history.back()
+    }
+
   }
   render() {
     return (
@@ -17,3 +24,4 @@ export default class Header extends React.Component {
     )
   }
 }
+export default withRouter(Header)

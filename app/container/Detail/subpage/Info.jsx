@@ -1,8 +1,9 @@
 import React from 'react'
 import InfoComponent from '../../../component/InfoComponent'
+import {withRouter} from 'react-router-dom'
 import {getShopInfo} from "../../../fetch/detail/index";
 
-export default class Info extends React.Component {
+class Info extends React.Component {
   constructor(props) {
     super(props)
     this.state = {info: false}
@@ -21,14 +22,17 @@ export default class Info extends React.Component {
         this.setState({info: json.data})
       })
   }
-
+  handleBuy(){
+    console.log('买单成功')
+    this.props.history.push('/login/' + encodeURI('detail&&'+this.props.id ))
+  }
   render() {
     const info = this.state.info
     return (
       <div>
         {
           info
-            ? <InfoComponent data={info}/>
+            ? <InfoComponent data={info} onClickBuyBtn={this.handleBuy.bind(this)} />
             : ''
         }
 
@@ -36,3 +40,4 @@ export default class Info extends React.Component {
     )
   }
 }
+export default withRouter(Info)

@@ -76,14 +76,14 @@ router.get('/api/search/:page/:city/:category', async (ctx) => {
 
   ctx.body = searchListData
 })
-
+//获取商户详情
 let detailInfo = require('./detail/info.js')
 router.get('/api/detail/info/:shopId', async(ctx) => {
   const shopId = ctx.params.shopId
   console.log("商户ID:" + shopId)
   ctx.body = detailInfo
 })
-
+//获取评论列表
 let detailComment = require('./detail/comment.js')
 router.get('/api/detail/comment/:shopId/:page', async(ctx) => {
   const shopId = ctx.params.shopId
@@ -97,6 +97,21 @@ router.get('/api/detail/comment/:shopId/:page', async(ctx) => {
   }
   ctx.body = detailComment
 })
+//用户信息
+let userinfo = require('./user/userinfo.js')
+router.get('/api/user/info/:username', async(ctx) => {
+  const username = ctx.params.username
+  console.log("用户ID:" + username)
+  ctx.body = userinfo
+})
+//获取用户订单
+let deallist = require('./user/dealList.js')
+router.get('/api/user/deal/:username', async(ctx) => {
+  const username = ctx.params.username
+  console.log("用户ID:" + username)
+  ctx.body = deallist
+})
+
 
 // 加载路由中间件
 app.use(router.routes()).use(router.allowedMethods())
