@@ -1,5 +1,5 @@
 import React from 'react'
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createHashHistory'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import { HashRouter  as Router, Route, Switch } from 'react-router-dom'
 

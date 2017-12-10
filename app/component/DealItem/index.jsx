@@ -1,15 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Assess from '../Assess'
 import './style.less'
 
 export default class DealItemComponent extends React.Component {
-
+  constructor(props){
+    super(props)
+    this.state = {showAssess:false}
+  }
+  handleBtnClick(){
+    this.setState({showAssess:true})
+  }
+  hanleClick(){
+    this.setState({showAssess:false})
+  }
   render() {
     const deal = this.props.data
-    console.log(deal)
     return (
       <div className='deal-item'>
-        <Link to={'/detail/'+deal.shopId} className='deal-left'>
+        <Link to={'/detail/' + deal.shopId} className='deal-left'>
           <div className='deal-pic'>
             <img src={deal.defaultPic} alt=""/>
           </div>
@@ -21,8 +30,13 @@ export default class DealItemComponent extends React.Component {
           </div>
         </Link>
         <div className='deal-right'>
-          <button className='deal-button'>评价</button>
+          <button className='deal-button' onClick={this.handleBtnClick.bind(this)}>评价</button>
         </div>
+        {this.state.showAssess
+          ? <Assess data={deal} onClick={this.hanleClick.bind(this)}/>
+          : ''
+        }
+
       </div>
     )
   }

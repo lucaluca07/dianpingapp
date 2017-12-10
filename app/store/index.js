@@ -1,7 +1,7 @@
 import {createStore,compose,applyMiddleware} from 'redux'
 import rootReducer from '../reducers'
-import createHistory from 'history/createBrowserHistory'
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import createHistory from 'history/createHashHistory'
+import { routerMiddleware } from 'react-router-redux'
 
 export default  function configureStore(initialState) {
   const history = createHistory()
