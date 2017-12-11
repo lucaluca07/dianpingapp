@@ -4,6 +4,34 @@ const app = new Koa()
 const Router = require('koa-router')
 
 let router = new Router()
+function parsePostData( ctx ) {
+  return new Promise((resolve, reject) => {
+    try {
+      let postdata = "";
+      ctx.req.addListener('data', (data) => {
+        postdata += data
+      })
+      ctx.req.addListener("end",function(){
+        let parseData = parseQueryStr( postdata )
+        resolve( parseData )
+      })
+    } catch ( err ) {
+      reject(err)
+    }
+  })
+}
+
+// 将POST请求参数字符串解析成JSON
+function parseQueryStr( queryStr ) {
+  let queryData = {}
+  let queryStrList = queryStr.split('&')
+  console.log( queryStrList )
+  for (  let [ index, queryStr ] of queryStrList.entries()  ) {
+    let itemList = queryStr.split('=')
+    queryData[ itemList[0] ] = decodeURIComponent(itemList[1])
+  }
+  return queryData
+}
 
 //头条点评数据
 let homeHeadLine = require('./home/headline.js')
@@ -97,6 +125,7 @@ router.get('/api/detail/comment/:shopId/:page', async(ctx) => {
   }
   ctx.body = detailComment
 })
+//
 //用户信息
 let userinfo = require('./user/userinfo.js')
 router.get('/api/user/info/:username', async(ctx) => {
@@ -110,6 +139,25 @@ router.get('/api/user/deal/:username', async(ctx) => {
   const username = ctx.params.username
   console.log("用户ID:" + username)
   ctx.body = deallist
+})
+//提交评论
+router.post('/api/submitAssess', async(ctx) => {
+  let postData = await parsePostData( ctx )
+  console.log("提交评论",postData)
+  ctx.body = {
+    code:200,
+    message:'提交成功'
+  }
+})
+//登录验证
+router.post('/api/login', async(ctx) => {
+  let postData = await parsePostData( ctx )
+  console.log("登录",postData)
+  let result = {code:200,message:'登录成功'}
+  if(postData.username == '' || postData.password == '123'){
+    result = {code:400,message:'登录失败,用户名或密码错误'}
+  }
+  ctx.body = result
 })
 
 

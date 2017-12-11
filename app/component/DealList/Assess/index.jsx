@@ -1,5 +1,5 @@
 import React from 'react'
-import Star from '../Star'
+import Star from '../../Star/index'
 import './style.less'
 
 export default class Assess extends React.Component {
@@ -9,6 +9,21 @@ export default class Assess extends React.Component {
   }
   handleClick(){
     this.props.onClick()
+  }
+  handleChange(e){
+    this.setState({value:e.target.value})
+  }
+  handleSetStar(star){
+    this.setState({star:star})
+  }
+  handleSubmitClick(){
+    const id = this.props.data.dealid
+    const value = this.state.value
+    const star = this.state.star
+    if(!value || star < 1){
+      return
+    }
+    this.props.onSubmit(id,value,star)
   }
   render() {
     const deal = this.props.data
@@ -29,9 +44,9 @@ export default class Assess extends React.Component {
                 <div className='assess-goods-name'>{deal.goodsName}</div>
               </div>
             </div>
-            <textarea className='content' value={this.state.value}></textarea>
-            <Star star={0} onOff={true}/>
-            <button className='assess-btn'>
+            <textarea className='content' value={this.state.value} onChange={this.handleChange.bind(this)}></textarea>
+            <Star star={0} onOff={true} onSetStar={this.handleSetStar.bind(this)}/>
+            <button onClick={this.handleSubmitClick.bind(this)} className='assess-btn'>
               提交评价
             </button>
           </div>

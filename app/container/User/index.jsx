@@ -19,7 +19,9 @@ class User extends Component{
         {
           username
             ?<div>
+              {/*用户信息*/}
               <UserInfo username={username}/>
+              {/*用户订单列表*/}
               <DealList username={username}/>
             </div>
             :''

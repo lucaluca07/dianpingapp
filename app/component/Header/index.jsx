@@ -4,6 +4,7 @@ import './style.less'
 
 class Header extends React.Component {
 
+  //返回按钮，如果传入指定返回的地址就跳转到该地址，否则就返回上一个页面
   handleClick(){
     const backUrl = this.props.back
     if(backUrl){

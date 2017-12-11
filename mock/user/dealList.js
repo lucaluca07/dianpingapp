@@ -3,7 +3,7 @@ module.exports = {
     hasMore: true,
     "list": [{
       "shopName": "查厘士",
-      "dealgroupid": "24717990",
+      "dealid": "24717990",
       "goodsName": "[9店通用] 双人下午茶套餐，包间免费",
       "price": "69",
       "priceCount": "207",
@@ -12,7 +12,7 @@ module.exports = {
       "defaultPic": "https://p0.meituan.net/deal/eaae4dd722aeb0b23c805dd3a58a071325472.jpg%40180w_180h_1e_1c_1l_80q%7Cwatermark%3D0",
       "item_type": "standard",
       "distance": null,
-      "regionName": "",
+      "assessState": "0",
       "tgcurrentjoin": "23169",
       "recreason": "",
       "needpromocall": "true",
@@ -30,7 +30,7 @@ module.exports = {
     },
       {
         "shopName": "Regiustea天御皇茶",
-        "dealgroupid": "17287753",
+        "dealid": "17287753",
         "goodsName": "[4店通用] 全场饮品任选1杯，免预约",
         "price": "15.8",
         "priceCount": "31.6",
@@ -39,7 +39,7 @@ module.exports = {
         "defaultPic": "https://p1.meituan.net/deal/495ecea2c53950a4c48eb955da1ec6c666035.jpg%40180w_180h_1e_1c_1l_80q%7Cwatermark%3D0",
         "item_type": "standard",
         "distance": "512m",
-        "regionName": "",
+        "assessState": "0",
         "tgcurrentjoin": "245277",
         "recreason": "",
         "needpromocall": "true",
@@ -56,7 +56,7 @@ module.exports = {
         "discountList": []
       }, {
         "shopName": "威尼斯水城",
-        "dealgroupid": "18453540",
+        "dealid": "18453540",
         "goodsName": "[杨行] 单人浴资券",
         "price": "69",
         "priceCount": "69",
@@ -65,7 +65,7 @@ module.exports = {
         "defaultPic": "https://p1.meituan.net/dpdeal/03d926ebb96dce419628c69089d2190b81206.jpg%40180w_180h_1e_1c_1l_80q%7Cwatermark%3D0",
         "item_type": "standard",
         "distance": null,
-        "regionName": "",
+        "assessState": "0",
         "tgcurrentjoin": "26711",
         "recreason": "",
         "needpromocall": "true",
@@ -83,7 +83,7 @@ module.exports = {
         "discountTag": "休闲娱乐团购新用户减5元"
       }, {
         "shopName": "上海虾满堂",
-        "dealgroupid": "27181757",
+        "dealid": "27181757",
         "goodsName": "[18店通用] 100元海鲜大咖代金券1张",
         "price": "10",
         "priceCount": "50",
@@ -92,7 +92,7 @@ module.exports = {
         "defaultPic": "https://p1.meituan.net/deal/ffa247f2f024e52a97d2fa6d8c3198de194089.jpg%40180w_180h_1e_1c_1l_80q%7Cwatermark%3D0",
         "item_type": "standard",
         "distance": null,
-        "regionName": "",
+        "assessState": "1",
         "tgcurrentjoin": "11056",
         "recreason": "",
         "needpromocall": "true",
@@ -109,7 +109,7 @@ module.exports = {
         "discountList": []
       }, {
         "shopName": "水善汇都市汗蒸",
-        "dealgroupid": "19549450",
+        "dealid": "19549450",
         "goodsName": "[五角场/大学区] 单人浴资券（周一至周五）",
         "price": "68",
         "priceCount": "68",
@@ -118,7 +118,7 @@ module.exports = {
         "defaultPic": "https://p1.meituan.net/dpdeal/bdcef22afe5fb94c59cef2b76f15c98519555.jpg%40180w_180h_1e_1c_1l_80q%7Cwatermark%3D0",
         "item_type": "standard",
         "distance": null,
-        "regionName": "",
+        "assessState": "1",
         "tgcurrentjoin": "38533",
         "recreason": "",
         "needpromocall": "true",

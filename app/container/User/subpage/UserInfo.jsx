@@ -11,10 +11,11 @@ export default class UserInfo extends React.Component {
 
   componentDidMount() {
     const username = this.props.username
+    //通过username获取用户信息
     const result = getUserInfo(username)
     this.handleResult(result)
   }
-
+  //处理数据
   handleResult(result) {
     result.then(res => res.json())
       .then(json => this.setState({userinfo: json.data}))
