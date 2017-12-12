@@ -17,16 +17,9 @@ module.exports = {
   },
   output: {
     path: __dirname + "/build",
-    filename: "[name].[chunkhash:8].js"
+    filename: "[name].[chunkhash:4].js",
+    publicPath: '/'
   },
-
-  devServer: {
-    contentBase: __dirname + "/build",//本地服务器所加载的页面所在的目录
-    historyApiFallback: true,//不跳转
-    inline: true,//实时刷新
-    hot: true
-  },
-
   module: {
     rules: [
       {
@@ -46,20 +39,20 @@ module.exports = {
       {
         test: /\.(png|gif|jpg|jpeg|bmp)$/i,
         use: {
-          loader: "url-loader?limit=5000&name=img/[name].[chunkhash:8].[ext]"
+          loader: "url-loader?limit=20000&name=img/[name].[chunkhash:4].[ext]"
         }
       },
       {
         test: /\.(woff|woff2|svg|ttf|eot)($|\?)/i,
         use: {
-          loader: "url-loader?limit=5000&name=fonts/[name].[chunkhash:8].[ext]"
+          loader: "url-loader?limit=10000&name=fonts/[name].[chunkhash:4].[ext]"
         }
       },
     ]
   },
   plugins: [
     // webpack 内置的 banner-plugin
-    new webpack.BannerPlugin("Copyright by wangfupeng1988@github.com."),
+    new webpack.BannerPlugin("Copyright by volcanoliuc"),
 
     // html 模板插件
     new HtmlWebpackPlugin({
@@ -73,25 +66,25 @@ module.exports = {
       }
     }),
 
-    // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        //supresses warnings, usually from module minification
-        warnings: false
-      }
-    }),
+    // // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+    //
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     //supresses warnings, usually from module minification
+    //     warnings: false
+    //   }
+    // }),
 
     // 分离CSS和JS文件
-    new ExtractTextPlugin('[name].[chunkhash:8].css'),
+    new ExtractTextPlugin('[name].[chunkhash:4].css'),
 
     // 提供公共代码
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: '[name].[chunkhash:8].js'
+      filename: '[name].[chunkhash:4].js'
     }),
 
-    // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
+// 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
     })
