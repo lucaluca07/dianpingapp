@@ -9,15 +9,13 @@ import List from './subpage/List'
 
 class Home extends Component{
   render(){
-    return(
-      <div>
-        <HomeHeader cityName={this.props.userinfo.cityName}/>
-        <Category/>
-        <HeadLine/>
-        <Ad/>
-        <List cityName={this.props.userinfo.cityName}/>
-      </div>
-    )
+    return <div>
+        <HomeHeader cityName={this.props.userinfo.cityName} />
+        <Category />
+        <HeadLine />
+        <Ad />
+        <List cityName={this.props.userinfo.cityName} />
+      </div>;
   }
 }
 

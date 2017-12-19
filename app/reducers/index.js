@@ -1,10 +1,12 @@
-import {combineReducers} from 'redux'
-import { routerReducer } from 'react-router-redux'
-import userinfo from './userinfo'
+import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
+import userinfo from "./userinfo";
+import getFirstPage from "./getFirstPage";
 
-const rootReducer =  combineReducers({
+const rootReducer = combineReducers({
   userinfo,
+  firstPageDate: getFirstPage,
   router: routerReducer
-})
+});
 
-export default rootReducer
+export default rootReducer;

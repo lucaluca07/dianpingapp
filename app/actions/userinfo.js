@@ -1,8 +1,9 @@
-import * as actionTypes from '../contant/userinfo'
+import * as actionTypes from "../constants/userinfo";
 
-export function update(data) { //更新用户信息
-  return({
-    type:actionTypes.USERINFO_UPDATE,
+export function update(data) {
+  //更新用户信息
+  return {
+    type: actionTypes.USERINFO_UPDATE,
     data
-  })
+  };
 }

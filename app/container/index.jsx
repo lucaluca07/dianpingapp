@@ -1,55 +1,47 @@
-import React from 'react'
-import RouterMap from '../router/routerMap'
-import CITYNAME from '../config/localStoreKey'
-import LocalStore from '../util/localStore'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import * as userInfoActions from '../actions/userinfo'
+import React from "react";
+import RouterMap from "../router/routerMap";
+import CITYNAME from "../config/localStoreKey";
+import LocalStore from "../util/localStore";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as userInfoActions from "../actions/userinfo";
 
 class App extends React.Component {
   constructor() {
-    super()
-    this.state = {initDone: false}
+    super();
+    this.state = { initDone: false };
   }
 
   componentDidMount() {
     //从localstorage中获取cityName,获取不到就设置为北京
-    let cityName = LocalStore.getItem(CITYNAME)
+    let cityName = LocalStore.getItem(CITYNAME);
     if (cityName == null) {
-      cityName = '北京'
+      cityName = "北京";
     }
 
     //设置cityName到redux中
     this.props.userinfo.update({
       cityName: cityName
-    })
+    });
 
-    this.setState({ initDone: true })
+    this.setState({ initDone: true });
   }
 
   render() {
     return (
-      <div>
-        {this.state.initDone
-          ? <RouterMap/>
-          : <div>Loadding...</div>}
-      </div>
-    )
+      <div>{this.state.initDone ? <RouterMap /> : <div>Loadding...</div>}</div>
+    );
   }
 }
 
 function mapStateToProps(state) {
-  return {
-  }
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     userinfo: bindActionCreators(userInfoActions, dispatch)
-  }
+  };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

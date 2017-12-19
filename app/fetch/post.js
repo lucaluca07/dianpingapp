@@ -1,25 +1,25 @@
-import 'whatwg-fetch'
-import 'es6-promise'
+import "whatwg-fetch";
+import "es6-promise";
 
 function objToParam(paramsObj) {
-  let result = '';
+  let result = "";
   for (let item in paramsObj) {
-    result += `&${item}=${encodeURIComponent(paramsObj[item])}`
+    result += `&${item}=${encodeURIComponent(paramsObj[item])}`;
   }
   if (result) {
-    result = result.slice(1)
+    result = result.slice(1);
   }
-  return result
+  return result;
 }
 
 export function post(url, paramsObj) {
   let result = fetch(url, {
-    method: 'POST',
-    credentials: 'include',
+    method: "POST",
+    credentials: "include",
     headers: {
-      'Accept': 'application/json, text/plain, */*'
+      Accept: "application/json, text/plain, */*"
     },
     body: objToParam(paramsObj)
-  })
-  return result
+  });
+  return result;
 }

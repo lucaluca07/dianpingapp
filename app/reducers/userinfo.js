@@ -1,12 +1,12 @@
-import * as actionTypes from '../contant/userinfo'
+import * as actionTypes from "../constants/userinfo";
 
-const initialState = {}
+const initialState = {};
 
-export default function login(state = initialState, action){
-  switch (action.type){
+export default function login(state = initialState, action) {
+  switch (action.type) {
     case actionTypes.USERINFO_UPDATE:
-      return Object.assign({},state,action.data)
+      return Object.assign({}, state, action.data);
     default:
-      return state
+      return state;
   }
 }

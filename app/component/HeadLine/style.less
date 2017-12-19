@@ -1,36 +1,35 @@
-.headline{
-  display: flex;
-  justify-content: space-between;
-  height: 65px;
-  background-color: #fff;
-  .headline-title{
-    flex:0 0 50px;
+.headline {
+    display: flex;
+    justify-content: space-between;
     height: 65px;
-    background: url("../../static/img/title.png") no-repeat right 15px;
-    background-size: 186px;
-  }
-  .headline-swipe{
-    flex: 1;
-    width: auto;
-    //改变轮播图方向
-    .swipe-item{
-      display: flex;
-      padding: 10px;
-      .swipe-title{
-        display: flex;
-        flex: 1;
-        line-height: 22px;
-        font-weight: bold;
-        font-size: 14px;
-        width:80%;
-        .title-text{
-          align-self: center;
-        }
-      }
-      .swipe-pic{
-        flex:0 0 45px;
-        height: 45px;
-      }
+    background-color: #fff;
+    .headline-title {
+        flex: 0 0 50px;
+        height: 65px;
+        background: url("../../static/img/title.png") no-repeat right 15px;
+        background-size: 186px;
     }
-  }
+    .headline-swipe {
+        flex: 1;
+        width: auto; //改变轮播图方向
+        .swipe-item {
+            display: flex;
+            padding: 10px;
+            .swipe-title {
+                display: flex;
+                flex: 1;
+                line-height: 22px;
+                font-weight: bold;
+                font-size: 14px;
+                width: 80%;
+                .title-text {
+                    align-self: center;
+                }
+            }
+            .swipe-pic {
+                flex: 0 0 45px;
+                height: 45px;
+            }
+        }
+    }
 }
