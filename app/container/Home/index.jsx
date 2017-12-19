@@ -9,12 +9,13 @@ import List from './subpage/List'
 
 class Home extends Component{
   render(){
+    const cityName = this.props.cityName;
     return <div>
-        <HomeHeader cityName={this.props.userinfo.cityName} />
+        <HomeHeader cityName={cityName} />
         <Category />
         <HeadLine />
-        <Ad />
-        <List cityName={this.props.userinfo.cityName} />
+        <Ad/>
+        <List cityName={cityName} />
       </div>;
   }
 }
@@ -22,7 +23,8 @@ class Home extends Component{
 // - - - - - - - - - - - react redux 绑定 - - - - - - - - - - -
 function mapStateToProps(state) {
   return {
-    userinfo:state.userinfo
+    userinfo:state.userinfo,
+    cityName:state.cityName
   }
 }
 

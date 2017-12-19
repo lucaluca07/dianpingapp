@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as userInfoActions from "../../actions/userinfo";
+import * as setCityNameAction from "../../actions/setCityName";
 import Header from "../../component/Header";
 import CurrentCity from "../../component/CurrentCity";
 import CityList from "../../component/CityList";
@@ -14,7 +14,7 @@ class City extends Component {
   handleChangeCity(newCity) {
     //修改redux
     const action = this.props.action;
-    action.update({ cityName: newCity });
+    action.setCityName(newCity);
 
     //修改localstore
     LocalStore.setItem(CITYNAME, newCity);
@@ -24,11 +24,11 @@ class City extends Component {
   }
   render() {
     //redux传入的userinfo
-    const userinfo = this.props.userinfo;
+    const cityName = this.props.cityName;
     return (
       <div>
         <Header title="选择城市" />
-        <CurrentCity cityName={userinfo.cityName} />
+        <CurrentCity cityName={cityName} />
         <CityList onChangeCity={this.handleChangeCity.bind(this)} />
       </div>
     );
@@ -36,11 +36,11 @@ class City extends Component {
 }
 //获取redux中的userinfo
 function mapStateToProps(state) {
-  return { userinfo: state.userinfo };
+  return { cityName: state.cityName };
 }
 //获取action
 function mapDispatchToProps(dispatch) {
-  return { action: bindActionCreators(userInfoActions, dispatch) };
+  return { action: bindActionCreators(setCityNameAction, dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(City);
