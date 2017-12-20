@@ -44,7 +44,7 @@ function getAd(isFetching=false, json={}) {
 //请求AD数据
 export function fetchAD() {
   return dispatch => {
-    dispatch(getAd());
+    dispatch(getAd(true));
     return getAdData()
       .then(res => res.json())
       .then(json => {
