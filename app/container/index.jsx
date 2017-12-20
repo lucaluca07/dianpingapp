@@ -4,7 +4,7 @@ import CITYNAME from "../config/localStoreKey";
 import LocalStore from "../util/localStore";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as userInfoActions from "../actions/userinfo";
+import * as setCityNameAction from "../actions/setCityName";
 
 class App extends React.Component {
   constructor() {
@@ -20,9 +20,7 @@ class App extends React.Component {
     }
 
     //设置cityName到redux中
-    this.props.userinfo.update({
-      cityName: cityName
-    });
+    this.props.setCityName.setCityName(cityName);
 
     this.setState({ initDone: true });
   }
@@ -40,7 +38,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    userinfo: bindActionCreators(userInfoActions, dispatch)
+    setCityName: bindActionCreators(setCityNameAction, dispatch)
   };
 }
 
