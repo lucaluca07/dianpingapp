@@ -6,13 +6,13 @@ import {
 } from "../fetch/home";
 
 //开始请求headline数据
-function getHeadline(isFetching, json) {
+function getHeadline(isFetching=false, json={}) {
   return {
     type: actionType.GET_HEADLINE,
-    isFetching: isFetching || false,
-    data: json && json.data,
+    isFetching: isFetching,
+    data: json.data,
     receiverAt: Date.now(),
-    message: json && json.message || "",
+    message: json.message || "",
   };
 }
 
@@ -31,13 +31,13 @@ export function fetchHeadline() {
 }
 
 //开始请求AD数据
-function getAd(isFetching, json) {
+function getAd(isFetching=false, json={}) {
   return {
     type: actionType.GET_AD,
-    isFetching: isFetching || false,
-    data: json && json.data,
+    isFetching: isFetching,
+    data: json.data,
     receiverAt: Date.now(),
-    message: json && json.message || "",
+    message: json.message || "",
   };
 }
 
@@ -54,15 +54,16 @@ export function fetchAD() {
   };
 }
 
-//开始请求headline数据
-function getList(isFetching, json, page) {
+//开始请求list数据
+function getList(isFetching=false, json={}, page) {
   return {
     type: actionType.GET_LIST,
-    isFetching: isFetching || false,
-    data: json && json.data,
+    isFetching: isFetching,
+    list: json.data&&json.data.list,
+    hasMore: json.data&&json.data.hasMore,
     page: page,
     receiverAt: Date.now(),
-    message: json && json.message || "",
+    message: json.message || "",
   };
 }
 
@@ -75,7 +76,7 @@ export function fetchList(city, page) {
       .then(json => {
         //获取数据成功
         return dispatch(getList(false, json, page));
-      }).catch(err => dispatch(getList(false, json, page)));
+      }).catch(err => dispatch(getList(false, err, page)));
   };
 }
 

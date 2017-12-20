@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import configureState from "./store";
 import { fetchHeadline, fetchAD, fetchList } from "./actions/getFirstPage";
 import { setCityName } from './actions/setCityName'
-import { getListData } from "./fetch/home";
+import { fetchSearchData } from "./actions/getSearchData";
 
 import "./static/css/common.less";
 import "./static/css/font.css";
@@ -15,6 +15,8 @@ store.dispatch(fetchHeadline());
 store.dispatch(fetchAD());
 store.dispatch(fetchList("北京",2));
 store.dispatch(setCityName("北京"));
+store.dispatch(fetchSearchData(0,"北京","all"))
+store.dispatch(fetchSearchData(0,"北京","all","测试"))
 
 render(
   <Provider store={store}>
