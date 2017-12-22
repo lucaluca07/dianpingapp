@@ -5,6 +5,13 @@ import {
   getListData
 } from "../fetch/home";
 
+export function recoverDefaultState(){
+  return {
+    type:actionType.RECOVER_DEFAULT_STATE,
+
+  }
+}
+
 //开始请求headline数据
 function getHeadline(isFetching=false, json={}) {
   return {

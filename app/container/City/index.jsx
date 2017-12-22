@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as setCityNameAction from "../../actions/setCityName";
+import {recoverDefaultState} from '../../actions/getFirstPage.js'
 import Header from "../../component/Header";
 import CurrentCity from "../../component/CurrentCity";
 import CityList from "../../component/CityList";
@@ -13,8 +14,11 @@ class City extends Component {
   //修改城市的页面
   handleChangeCity(newCity) {
     //修改redux
-    const action = this.props.action;
-    action.setCityName(newCity);
+    const cityNameActions = this.props.cityNameActions;
+    const recoverDefaultState = this.props.recoverDefaultState;
+    console.log(this.props)
+    cityNameActions.setCityName(newCity);
+    recoverDefaultState() ;
 
     //修改localstore
     LocalStore.setItem(CITYNAME, newCity);
@@ -40,7 +44,10 @@ function mapStateToProps(state) {
 }
 //获取action
 function mapDispatchToProps(dispatch) {
-  return { action: bindActionCreators(setCityNameAction, dispatch) };
+  return { 
+    cityNameActions: bindActionCreators(setCityNameAction, dispatch),
+    recoverDefaultState:bindActionCreators(recoverDefaultState,dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(City);

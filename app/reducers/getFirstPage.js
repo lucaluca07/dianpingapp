@@ -12,6 +12,8 @@ const defaultState = {
 //异步antion处理的reducer
 export default function getFirstPage(state = defaultState, action) {
   switch (action.type) {
+    case actionType.RECOVER_DEFAULT_STATE:
+      return defaultState ;
       //获取数据成功更新state
     case actionType.GET_HEADLINE:
       return Object.assign({}, state, {
