@@ -15,8 +15,8 @@ class City extends Component {
   handleChangeCity(newCity) {
     //修改redux
     const cityNameActions = this.props.cityNameActions;
+    //firstPageData恢复默认值
     const recoverDefaultState = this.props.recoverDefaultState;
-    console.log(this.props)
     cityNameActions.setCityName(newCity);
     recoverDefaultState() ;
 
@@ -38,7 +38,7 @@ class City extends Component {
     );
   }
 }
-//获取redux中的userinfo
+//获取redux中的cityName
 function mapStateToProps(state) {
   return { cityName: state.cityName };
 }

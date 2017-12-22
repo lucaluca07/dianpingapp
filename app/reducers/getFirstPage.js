@@ -5,16 +5,16 @@ const defaultState = {
   headlineFetching: false,
   adFetching: false,
   listFetching: false,
-  listData:false,
-  headlineData:false,
-  adData:false
+  listData: false,
+  headlineData: false,
+  adData: false
 };
 //异步antion处理的reducer
 export default function getFirstPage(state = defaultState, action) {
   switch (action.type) {
     case actionType.RECOVER_DEFAULT_STATE:
-      return defaultState ;
-      //获取数据成功更新state
+      return defaultState;
+      //获取headline数据
     case actionType.GET_HEADLINE:
       return Object.assign({}, state, {
         headlineFetching: action.isFetching,
@@ -22,8 +22,7 @@ export default function getFirstPage(state = defaultState, action) {
         lastUpdated: action.receiverAt,
         errMsg: action.message
       });
-      //获取数据失败更新state
-
+      //获取ad数据
     case actionType.GET_AD:
       return Object.assign({}, state, {
         adFetching: action.isFetching,
@@ -31,13 +30,13 @@ export default function getFirstPage(state = defaultState, action) {
         lastUpdated: action.receiverAt,
         errMsg: action.message
       });
-
+      //获取list数据
     case actionType.GET_LIST:
       return Object.assign({}, state, {
         listFetching: action.isFetching,
-        listData: [...state.listData,...action.list],
+        listData: [...state.listData, ...action.list],
         hasMoreList: action.hasMore,
-        currentPage:action.page,
+        currentPage: action.page,
         lastUpdated: action.receiverAt,
         errMsg: action.message
       });

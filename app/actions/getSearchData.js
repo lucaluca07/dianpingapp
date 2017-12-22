@@ -8,8 +8,8 @@ function getSeatchData(isFetching = false, json = {}, page) {
     return {
         type: actionType.GET_SEARCH_DATA,
         searchFetching: isFetching,
-        list: json.data&&json.data.list || [],
-        hasMore: json.data&&json.data.hasMore || false,
+        list: json.data && json.data.list || [],
+        hasMore: json.data && json.data.hasMore || false,
         page,
         receiverAt: Date.now(),
         message: json.message || "",
@@ -17,7 +17,7 @@ function getSeatchData(isFetching = false, json = {}, page) {
 }
 
 
-//请求headline数据
+//请求search数据
 export function fetchSearchData(page, city, type, keyword) {
     return dispatch => {
         dispatch(getSeatchData(true));

@@ -5,15 +5,16 @@ import {
   getListData
 } from "../fetch/home";
 
-export function recoverDefaultState(){
+//恢复默认值
+export function recoverDefaultState() {
   return {
-    type:actionType.RECOVER_DEFAULT_STATE,
+    type: actionType.RECOVER_DEFAULT_STATE,
 
   }
 }
 
 //开始请求headline数据
-function getHeadline(isFetching=false, json={}) {
+function getHeadline(isFetching = false, json = {}) {
   return {
     type: actionType.GET_HEADLINE,
     isFetching: isFetching,
@@ -35,15 +36,16 @@ export function fetchHeadline() {
       }).catch(err => (dispatch(getHeadline(false, err))))
   };
 }
-function shouldFetchHeadline(state){
+
+function shouldFetchHeadline(state) {
   const headline = state.firstPageDate.headline || false;
-  if(!headline){
+  if (!headline) {
     return true
-  }else{
+  } else {
     return !state.firstPageData.headlineFetching
   }
 }
-export function fetchHeadlineIfNeeded(){
+export function fetchHeadlineIfNeeded() {
   return (dispatch, getState) => {
     if (shouldFetchHeadline(getState())) {
       // 在 thunk 里 dispatch 另一个 thunk！
@@ -55,7 +57,7 @@ export function fetchHeadlineIfNeeded(){
   }
 }
 //开始请求AD数据
-function getAd(isFetching=false, json={}) {
+function getAd(isFetching = false, json = {}) {
   return {
     type: actionType.GET_AD,
     isFetching: isFetching,
@@ -79,12 +81,12 @@ export function fetchAD() {
 }
 
 //开始请求list数据
-function getList(isFetching=false, json={}, page) {
+function getList(isFetching = false, json = {}, page) {
   return {
     type: actionType.GET_LIST,
     isFetching: isFetching,
-    list: json.data&&json.data.list||[],
-    hasMore: json.data&&json.data.hasMore,
+    list: json.data && json.data.list || [],
+    hasMore: json.data && json.data.hasMore,
     page: page,
     receiverAt: Date.now(),
     message: json.message || "",
@@ -99,31 +101,7 @@ export function fetchList(city, page) {
       .then(res => res.json())
       .then(json => {
         //获取数据成功
-        return dispatch(getList(false, json, page+1));
+        return dispatch(getList(false, json, page + 1));
       }).catch(err => dispatch(getList(false, err, page)));
   };
 }
-
-// //判读是否需要发起请求
-// function shouldFetchPosts(name, state) {
-//   console.log("shoufetch",state)
-//   const posts = state.firstPageDate[name];
-//   if (!posts) {
-//     return true;
-//   } else if (posts.isFetching) {
-//     return false;
-//   } else {
-//     return posts.didInvalidate;
-//   }
-// }
-
-// //这个函数调用的是fetchPosts，在发起请求直接，先判断一下缓存是否可用
-// export function fetchPostsIfNeeded(name,fn) {
-//   return (dispatch, getState) => {
-//     if (shouldFetchPosts(name,getState())) {
-//       return dispatch(fn());
-//     } else {
-//       return Promise.resolve();
-//     }
-//   };
-// }
