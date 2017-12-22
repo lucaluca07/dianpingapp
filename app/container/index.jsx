@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>{this.state.initDone ? <RouterMap /> : <div>Loadding...</div>}</div>
+      <div>{this.state.initDone ? <RouterMap /> : <div></div>}</div>
     );
   }
 }

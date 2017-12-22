@@ -48,7 +48,6 @@ export default class List extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const hasMore = this.state.hasMore;
     const page = this.state.page;
     const isLoaddingMore = this.state.isLoaddingMore;

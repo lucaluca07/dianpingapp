@@ -4,7 +4,10 @@ import * as actionType from "../constants/getFirstPage";
 const defaultState = {
   headlineFetching: false,
   adFetching: false,
-  listFetching: false
+  listFetching: false,
+  listData:false,
+  headlineData:false,
+  adData:false
 };
 //异步antion处理的reducer
 export default function getFirstPage(state = defaultState, action) {
@@ -30,7 +33,7 @@ export default function getFirstPage(state = defaultState, action) {
     case actionType.GET_LIST:
       return Object.assign({}, state, {
         listFetching: action.isFetching,
-        listData: action.list,
+        listData: [...state.listData,...action.list],
         hasMoreList: action.hasMore,
         currentPage:action.page,
         lastUpdated: action.receiverAt,

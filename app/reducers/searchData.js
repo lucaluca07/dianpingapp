@@ -12,7 +12,6 @@ const defaultState = {
 export default function searchData(state = defaultState, action) {
   switch (action.type) {
     case actionType.GET_SEARCH_DATA:
-      console.log("searchData",state.data)
       return Object.assign({}, state, {
         searchFetching: action.searchFetching ,
         searchData: [...state.searchData,...action.list] ,

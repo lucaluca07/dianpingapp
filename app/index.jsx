@@ -11,12 +11,9 @@ import "./static/css/common.less";
 import "./static/css/font.css";
 
 const store = configureState();
-store.dispatch(fetchHeadline());
-store.dispatch(fetchAD());
-store.dispatch(fetchList("北京",2));
-store.dispatch(setCityName("北京"));
-store.dispatch(fetchSearchData(0,"北京","all"))
-store.dispatch(fetchSearchData(0,"北京","all","测试"))
+// store.dispatch(fetchAD());
+// store.dispatch(fetchList("北京",2));
+// store.dispatch(setCityName("北京"));
 
 render(
   <Provider store={store}>

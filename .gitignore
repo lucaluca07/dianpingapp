@@ -1,6 +1,7 @@
 node_modules/
 build/
 .idea/
-./vscode
+.vscode/
+.react-playground/
 npm-debug.log
 workspace.xml

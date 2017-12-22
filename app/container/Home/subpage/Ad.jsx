@@ -5,40 +5,37 @@ import "./style.less";
 
 //超值特惠 天天立减
 export default class Ad extends React.Component {
-  constructor() {
-    super();
-    this.state = { data: {} };
-  }
-  componentDidMount() {
-    const result = getAdData();
-    result
-      .then(res => res.json())
-      .then(json => this.setState({ data: json.data }));
-  }
   render() {
-    const data = this.state.data;
+    const data = this.props.data;
     return (
       <div>
-        <div>
-          {/*标题*/}
-          <div className="ad ">
-            <span className="czth">超值特惠 </span>
-            <span className="more">
-              更多优惠 <i className="icon-angle-right" />
-            </span>
-          </div>
-          <HomeAd data={data.czth} />
-        </div>
-        <div>
-          {/*标题*/}
-          <div className="ad ">
-            <span className="ttlj">天天立减</span>
-            <span className="more">
-              更多优惠 <i className="icon-angle-right" />
-            </span>
-          </div>
-          <HomeAd data={data.ttlj} />
-        </div>
+        {
+          data
+            ? <div>
+              <div>
+                {/*标题*/}
+                <div className="ad ">
+                  <span className="czth">超值特惠 </span>
+                  <span className="more">
+                    更多优惠 <i className="icon-angle-right" />
+                  </span>
+                </div>
+                <HomeAd data={data.czth} />
+              </div>
+              <div>
+                {/*标题*/}
+                <div className="ad ">
+                  <span className="ttlj">天天立减</span>
+                  <span className="more">
+                    更多优惠 <i className="icon-angle-right" />
+                  </span>
+                </div>
+                <HomeAd data={data.ttlj} />
+              </div>
+            </div>
+            : ""
+        }
+        
       </div>
     );
   }
