@@ -127,7 +127,7 @@ router.get("/api/detail/comment/:shopId/:page", async ctx => {
 });
 //
 //用户信息
-let userinfo = require("./user/userinfo.js");
+
 router.get("/api/user/info/:username", async ctx => {
   const username = ctx.params.username;
   console.log("用户ID:" + username);
@@ -150,10 +150,11 @@ router.post("/api/submitAssess", async ctx => {
   };
 });
 //登录验证
+let userinfo = require("./user/userinfo.js");
 router.post("/api/login", async ctx => {
   let postData = await parsePostData(ctx);
   console.log("登录", postData);
-  let result = { code: 200, message: "登录成功" };
+  let result = { data:userinfo, code: 200, message: "登录成功" };
   if (postData.username == "" || postData.password == "123") {
     result = { code: 400, message: "登录失败,用户名或密码错误" };
   }

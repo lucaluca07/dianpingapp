@@ -7,7 +7,7 @@ import DealList from "./subpage/DealList";
 
 class User extends Component {
   componentDidMount() {
-    if (!this.props.userinfo.username) {
+    if (!this.props.userinfo.data.userName) {
       this.props.history.push("/login");
     }
   }

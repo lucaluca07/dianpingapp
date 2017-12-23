@@ -24,6 +24,7 @@ export default class LoginComponent extends React.Component {
   * 用户名和密码输入框都为受控组件
   * */
   render() {
+    const isDisabled = this.props.isDisabled ;
     return (
       <div className="login-box">
         <div className="username">
@@ -42,7 +43,7 @@ export default class LoginComponent extends React.Component {
             placeholder="请输入密码"
           />
         </div>
-        <button className="login-btn" onClick={this.handleClick.bind(this)}>
+        <button className="login-btn" disabled={isDisabled?"disabled":null} onClick={this.handleClick.bind(this)}>
           登录
         </button>
       </div>
