@@ -11,14 +11,18 @@ const defaultState = {
 //异步antion处理的reducer
 export default function searchData(state = defaultState, action) {
   switch (action.type) {
+    case actionType.RECOVER_SEARCH_DATA:
+      return defaultState ;
+
     case actionType.GET_SEARCH_DATA:
       return Object.assign({}, state, {
         searchFetching: action.searchFetching ,
         searchData: [...state.searchData,...action.list] ,
-        hasMoreSearchData: false,
+        hasMoreSearchData: action.hasMore,
         searchCurrentPage: action.page ,
         errMsg: "",
       });
+
     default:
       return state;
   }

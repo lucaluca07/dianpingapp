@@ -3,6 +3,13 @@ import {
     getSearchData
 } from "../fetch/search";
 
+//恢复默认值
+export function recoverSearchData() {
+    return {
+      type: actionType.RECOVER_SEARCH_DATA,
+  
+    }
+  }
 //开始请求headline数据
 function getSeatchData(isFetching = false, json = {}, page) {
     return {
@@ -24,8 +31,7 @@ export function fetchSearchData(page, city, type, keyword) {
         return getSearchData(page, city, type, keyword)
             .then(res => res.json())
             .then(json => {
-                console.log("json", json)
-                return dispatch(getSeatchData(false, json, page));
+                return dispatch(getSeatchData(false, json, page+1));
             }).catch(err => (dispatch(getSeatchData(false, err, page))))
     };
 }
