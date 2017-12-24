@@ -24,8 +24,8 @@ class Info extends React.Component {
     console.log("买单成功");
     this.props.history.push("/login/" + encodeURI("detail&&" + this.props.id));
   }
-  render() {
-    const info = this.state.info;
+  render() {   
+    const info = this.props.data;
     return (
       <div>
         {info ? (
