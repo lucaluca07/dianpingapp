@@ -10,7 +10,7 @@ export default class DealItemComponent extends React.Component {
   }
   componentDidMount() {
     //获取订单，并且设置订单的评价状态
-    const deal = this.props.data;
+    const deal = this.props.data;   
     this.setState({ assessState: parseInt(deal.assessState) });
   }
   //点击评价 显示评价页面

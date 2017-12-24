@@ -4,7 +4,7 @@ import "./style.less";
 
 export default class DealListComponent extends React.Component {
   render() {
-    const dealList = this.props.dealList;
+    const {dealList} = this.props
     return (
       <div className="deal-list">
         <h3 className="deal-list-title">我的订单</h3>

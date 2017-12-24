@@ -1,11 +1,6 @@
 import { get } from "../get";
 import { post } from "../post";
 
-//获取用户信息
-export function getUserInfo(username) {
-  const result = get(`/api/user/info/${username}`);
-  return result;
-}
 
 //获取用户订单
 export function getDealList(username) {

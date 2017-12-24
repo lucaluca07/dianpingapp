@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Header from "../../component/Header";
 import { connect } from "react-redux";
-
+import { bindActionCreators } from 'redux'
+import * as userActions from '../../actions/userinfo';
 import UserInfo from "./subpage/UserInfo";
 import DealList from "./subpage/DealList";
 
@@ -9,19 +10,31 @@ class User extends Component {
   componentDidMount() {
     if (!this.props.userinfo.data.userName) {
       this.props.history.push("/login");
+      return
     }
+    const userId = this.props.userinfo.data.userId ;
+    const listAction = this.props.actions.fetchDealList;
+    listAction(userId)
+  }
+  handlePostAssess(id,text,star,callback){
+    const postAssess = this.props.actions.fetchUserAssess
+    postAssess(id,text,star,callback)
   }
   render() {
-    const username = this.props.userinfo.username;
+    const userinfo = this.props.userinfo;
+    const {data, listData, hasMoreDeal, dealId, assessCode} = userinfo ;
     return (
       <div>
         <Header title="用户中心" back="/" />
-        {username ? (
+        {data.userName ? (
           <div>
             {/*用户信息*/}
-            <UserInfo username={username} />
+            <UserInfo userinfo={data} />
             {/*用户订单列表*/}
-            <DealList username={username} />
+            { <DealList 
+              dealList={listData}
+              postAssess={this.handlePostAssess.bind(this)}
+            /> }
           </div>
         ) : (
           ""
@@ -36,6 +49,8 @@ function mapStateToProps(state) {
   };
 }
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    actions:bindActionCreators(userActions,dispatch)
+  };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(User);

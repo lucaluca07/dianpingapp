@@ -1,1 +1,3 @@
-export const USERINFO_UPDATE = 'USERINFO_UPDATE'
+export const USERINFO_UPDATE = 'USERINFO_UPDATE' ;
+export const GET_DEAL_LIST = 'GET_DEAL_LIST' ;
+export const POST_USER_ASSESS = 'POST_USER_ASSESS' ;
