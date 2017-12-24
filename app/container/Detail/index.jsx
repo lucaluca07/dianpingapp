@@ -8,7 +8,6 @@ import Header from "../../component/Header";
 
 class Detail extends Component {
   componentWillMount(){
-    console.log(this.props)
     const shopId = this.props.match.params.shopId;
     const actions = this.props.actions;
     actions.recoverDetailData();

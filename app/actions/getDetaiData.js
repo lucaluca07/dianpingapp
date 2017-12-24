@@ -58,7 +58,6 @@ export function fetchCommentList(id, page) {
       .then(res => res.json())
       .then(json => {
         //获取数据成功
-        console.log("-----------data----------",json)
         return dispatch(getCommentList(false, json, page + 1));
       }).catch(err => dispatch(getCommentList(false, err, page)));
   };
